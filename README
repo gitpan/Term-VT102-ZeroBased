@@ -1,0 +1,27 @@
+Term-VT102-ZeroBased 0.01
+
+Term::VT102, a module for terminal emulation, uses 1-based indices for screen
+positions. I find this annoying. So this is a simple wrapper around Term::VT102
+that converts 1-based indices to 0-based indices.
+
+See Term::VT102 for the documentation on using these modules.
+
+MAJOR CHANGES
+    0.01: first version
+
+INSTALLATION
+
+To install this module, run the following commands:
+
+    perl Makefile.PL
+    make
+    make test
+    make install
+
+COPYRIGHT AND LICENSE
+
+Copyright (C) 2007 Shawn M Moore
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
