@@ -26,19 +26,28 @@ around status => sub
     return ($x, $y, @others);
 };
 
-before row_attr => sub
+around row_attr => sub
 {
-    ++$_[1];
+    my $orig = shift;
+    my ($self, $row, @rest) = @_;
+    ++$row;
+    $orig->($self, $row, @rest);
 };
 
-before row_text => sub
+around row_text => sub
 {
-    ++$_[1];
+    my $orig = shift;
+    my ($self, $row, @rest) = @_;
+    ++$row;
+    $orig->($self, $row, @rest);
 };
 
-before row_plaintext => sub
+around row_plaintext => sub
 {
-    ++$_[1];
+    my $orig = shift;
+    my ($self, $row, @rest) = @_;
+    ++$row;
+    $orig->($self, $row, @rest);
 };
 
 =head1 NAME
@@ -47,11 +56,11 @@ Term::VT102::ZeroBased - Term::VT102 but with zero-based indices
 
 =head1 VERSION
 
-Version 0.01 released 01 Sep 07
+Version 0.82 released 02 Sep 07
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.82';
 
 =head1 SYNOPSIS
 
@@ -66,6 +75,10 @@ our $VERSION = '0.01';
 L<Term::VT102>, a module for terminal emulation, uses 1-based indices for
 screen positions. I find this annoying. So this is a simple wrapper around
 L<Term::VT102> that converts 1-based indices to 0-based indices.
+
+Why, in particular, would you want this? Escape sequences use one-based
+indices, so it makes perfect sense for L<Term::VT102> to use one-based
+indices. But L<Curses> uses zero-based indices. And so do most other modules.
 
 See L<Term::VT102> for the documentation on using these modules.
 

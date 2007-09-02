@@ -27,4 +27,5 @@ t/09-callback.t
 t/10-decaln.t
 t/11-decscrc.t
 t/12-cupsvrs.t
+t/99-zerobased.t
 t/testbase
