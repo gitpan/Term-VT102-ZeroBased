@@ -29,25 +29,25 @@ around status => sub
 around row_attr => sub
 {
     my $orig = shift;
-    my ($self, $row, @rest) = @_;
-    ++$row;
-    $orig->($self, $row, @rest);
+    my $self = shift;
+    my $row = 1 + shift;
+    $orig->($self, $row, @_);
 };
 
 around row_text => sub
 {
     my $orig = shift;
-    my ($self, $row, @rest) = @_;
-    ++$row;
-    $orig->($self, $row, @rest);
+    my $self = shift;
+    my $row = 1 + shift;
+    $orig->($self, $row, @_);
 };
 
 around row_plaintext => sub
 {
     my $orig = shift;
-    my ($self, $row, @rest) = @_;
-    ++$row;
-    $orig->($self, $row, @rest);
+    my $self = shift;
+    my $row = 1 + shift;
+    $orig->($self, $row, @_);
 };
 
 =head1 NAME
@@ -56,17 +56,17 @@ Term::VT102::ZeroBased - Term::VT102 but with zero-based indices
 
 =head1 VERSION
 
-Version 0.82 released 02 Sep 07
+Version 1.00 released 15 Sep 07
 
 =cut
 
-our $VERSION = '0.82';
+our $VERSION = '1.00';
 
 =head1 SYNOPSIS
 
   use Term::VT102::ZeroBased;
 
-  my $vt = Term::VT102->new (cols => 80, rows => 24);
+  my $vt = Term::VT102::ZeroBased->new(cols => 80, rows => 24);
   $vt->process("\e[H");                    # move to top left
   printf "(%d, %d)!\n", $vt->x, $vt->y;    # (0, 0)!
 

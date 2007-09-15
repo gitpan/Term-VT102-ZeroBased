@@ -1,5 +1,8 @@
 Revision history for Term-VT102-ZeroBased
 
+1.00    Sat Sep 15 18:35:04 2007
+        Ack, the synopsis was very wrong
+
 0.82    Sun Sep  2 00:06:56 2007
         Fix bug with constant row indices to row_(attr|text|plaintext)
         Documentation updates
