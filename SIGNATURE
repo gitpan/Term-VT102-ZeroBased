@@ -1,0 +1,54 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.55.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 611d4504b89419e4d65bd46f1c49eebb5773d142 Changes
+SHA1 b6a22458946d178974dad18f608587b56f9adad1 MANIFEST
+SHA1 cfdd725fb18cb8c1b4f59b89d9a4795ea7c119cb META.yml
+SHA1 c0e7cec316fdaa016a41e2f44c124545af6f8d54 Makefile.PL
+SHA1 fb5feba50bcc699448b2335221c71eb638ac8768 README
+SHA1 603bb9de29fb8cba7f13409c546750972eff645d inc/Module/AutoInstall.pm
+SHA1 78edb89a439463e44c33a72bbee84c54d0dc8aaf inc/Module/Install.pm
+SHA1 ae32c02b539901de91f06366ce9bdbb7a7bd040b inc/Module/Install/AutoInstall.pm
+SHA1 8ea4e37df83fd0c1c050be5c8da75545c3828d9b inc/Module/Install/Base.pm
+SHA1 1da6031583c32f0d1ec073b8376102fc51427dcc inc/Module/Install/Can.pm
+SHA1 b779375b90c16af2f31f38a1dd2b5df223c7f2fb inc/Module/Install/Fetch.pm
+SHA1 6bf0d0d100b94d1a2ce64d010c8813dec26ac480 inc/Module/Install/Include.pm
+SHA1 2054450e1e9c1dd8056362bf4a64ae70d5d71476 inc/Module/Install/Makefile.pm
+SHA1 5d6189b2cad15cf9932a28faafd55130c8247e83 inc/Module/Install/Metadata.pm
+SHA1 02af973fae2ac3531fa6b704574b2b8cb2a08148 inc/Module/Install/Win32.pm
+SHA1 3a2eab96e91cca8d99938cda7791759ae9d97b3a inc/Module/Install/WriteAll.pm
+SHA1 f4a00d0c37dfdd48c000f8f3e46aae554985b018 lib/Term/VT102/ZeroBased.pm
+SHA1 20fa1888bafa129fa1fe2c98d3e46cfa46cc20fd t/01-load.t
+SHA1 54d875ad7735617ad02e3a5771de12c4349ecca3 t/02-setsize.t
+SHA1 c06723218321ad336278d24eaaaa4037d8ebdd04 t/03-text.t
+SHA1 fcf47be177932198cd51f5e94861d68b14091e5c t/04-cursor.t
+SHA1 5fc6866e953b5630e4d073145103bf110c1716b9 t/05-scrolling.t
+SHA1 44d35502e15d721965adef39d9668968cfce732d t/06-insdel.t
+SHA1 9417746d0d533c5b4de7347544693e3d63cf34f3 t/07-colour.t
+SHA1 1ebe3ab9e7efb8d2198859142b2c7e39e61c57e1 t/08-options.t
+SHA1 95710944302a5e2373a00497b80ab6ffadd6c15d t/09-callback.t
+SHA1 fc85067dcf24b8446ac502c9e806f51a54dfb343 t/10-decaln.t
+SHA1 9dc17cf3a731dbd02a4d8973b029fce5af65be4d t/11-decscrc.t
+SHA1 7424b06932423c1375e3ba95b064a29a80b43f05 t/12-cupsvrs.t
+SHA1 0e31d5971b5e94da4a04103e7cb95e64b3668ab5 t/99-zerobased.t
+SHA1 3c78e0d6ee539e5e13750ee945b25e04daeba9f2 t/testbase
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.7 (Darwin)
+
+iD8DBQFHXjGGsxfQtHhyRPoRAobEAJ93fnav9h+AicheIIKxzhNaIvd4PwCgj0mB
+mo7mhk7QoWcWApehjkR403I=
+=KY06
+-----END PGP SIGNATURE-----

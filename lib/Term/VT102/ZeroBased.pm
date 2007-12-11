@@ -28,26 +28,35 @@ around status => sub
 
 around row_attr => sub
 {
-    my $orig = shift;
-    my $self = shift;
-    my $row = 1 + shift;
-    $orig->($self, $row, @_);
+    my $orig  = shift;
+    my $self  = shift;
+    my $row   = @_ ? 1 + shift : undef;
+    my $start = @_ ? 1 + shift : undef;
+    my $end   = @_ ? 1 + shift : undef;
+
+    $orig->($self, $row, $start, $end, @_);
 };
 
 around row_text => sub
 {
-    my $orig = shift;
-    my $self = shift;
-    my $row = 1 + shift;
-    $orig->($self, $row, @_);
+    my $orig  = shift;
+    my $self  = shift;
+    my $row   = @_ ? 1 + shift : undef;
+    my $start = @_ ? 1 + shift : undef;
+    my $end   = @_ ? 1 + shift : undef;
+
+    $orig->($self, $row, $start, $end, @_);
 };
 
 around row_plaintext => sub
 {
-    my $orig = shift;
-    my $self = shift;
-    my $row = 1 + shift;
-    $orig->($self, $row, @_);
+    my $orig  = shift;
+    my $self  = shift;
+    my $row   = @_ ? 1 + shift : undef;
+    my $start = @_ ? 1 + shift : undef;
+    my $end   = @_ ? 1 + shift : undef;
+
+    $orig->($self, $row, $start, $end, @_);
 };
 
 =head1 NAME
@@ -56,11 +65,11 @@ Term::VT102::ZeroBased - Term::VT102 but with zero-based indices
 
 =head1 VERSION
 
-Version 1.00 released 15 Sep 07
+Version 1.01 released 11 Dec 07
 
 =cut
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 =head1 SYNOPSIS
 
