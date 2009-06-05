@@ -1,83 +1,60 @@
-#!perl
 package Term::VT102::ZeroBased;
 use strict;
 use warnings;
-use parent 'Term::VT102';
-use Class::Method::Modifiers;
+use base 'Term::VT102';
 
-around x => sub
-{
-    my $orig = shift;
-    $orig->(@_) - 1;
-};
+our $VERSION = '1.02';
 
-around y => sub
-{
-    my $orig = shift;
-    $orig->(@_) - 1;
-};
+sub x { shift->SUPER::x(@_) - 1 }
+sub y { shift->SUPER::y(@_) - 1 }
 
-around status => sub
-{
-    my $orig = shift;
-    my ($x, $y, @others) = $orig->(@_);
-    --$x;
-    --$y;
-    return ($x, $y, @others);
-};
+sub status {
+    my ($x, $y, @others) = shift->SUPER::status(@_);
+    return ($x - 1, $y - 1, @others);
+}
 
-around row_attr => sub
-{
-    my $orig  = shift;
-    my $self  = shift;
+sub row_attr {
+    my $self = shift;
     my $row   = @_ ? 1 + shift : undef;
     my $start = @_ ? 1 + shift : undef;
     my $end   = @_ ? 1 + shift : undef;
 
-    $orig->($self, $row, $start, $end, @_);
-};
+    $self->SUPER::row_attr($row, $start, $end, @_);
+}
 
-around row_text => sub
-{
-    my $orig  = shift;
-    my $self  = shift;
+sub row_text {
+    my $self = shift;
     my $row   = @_ ? 1 + shift : undef;
     my $start = @_ ? 1 + shift : undef;
     my $end   = @_ ? 1 + shift : undef;
 
-    $orig->($self, $row, $start, $end, @_);
-};
+    $self->SUPER::row_text($row, $start, $end, @_);
+}
 
-around row_plaintext => sub
-{
-    my $orig  = shift;
-    my $self  = shift;
+sub row_plaintext {
+    my $self = shift;
     my $row   = @_ ? 1 + shift : undef;
     my $start = @_ ? 1 + shift : undef;
     my $end   = @_ ? 1 + shift : undef;
 
-    $orig->($self, $row, $start, $end, @_);
-};
+    $self->SUPER::row_plaintext($row, $start, $end, @_);
+}
+
+1;
+
+__END__
 
 =head1 NAME
 
 Term::VT102::ZeroBased - Term::VT102 but with zero-based indices
 
-=head1 VERSION
-
-Version 1.01 released 11 Dec 07
-
-=cut
-
-our $VERSION = '1.01';
-
 =head1 SYNOPSIS
 
-  use Term::VT102::ZeroBased;
+    use Term::VT102::ZeroBased;
 
-  my $vt = Term::VT102::ZeroBased->new(cols => 80, rows => 24);
-  $vt->process("\e[H");                    # move to top left
-  printf "(%d, %d)!\n", $vt->x, $vt->y;    # (0, 0)!
+    my $vt = Term::VT102::ZeroBased->new(cols => 80, rows => 24);
+    $vt->process("\e[H");                    # move to top left
+    printf "(%d, %d)!\n", $vt->x, $vt->y;    # (0, 0)!
 
 =head1 DESCRIPTION
 
@@ -93,32 +70,20 @@ See L<Term::VT102> for the documentation on using these modules.
 
 =head1 SEE ALSO
 
-L<Term::VT102>, L<Class::Method::Modifiers>
+L<Term::VT102>
 
 =head1 AUTHOR
 
-Wrapper by Shawn M Moore, C<< <sartak at gmail dot com> >>
+Wrapper by Shawn M Moore, C<sartak@gmail.com>
 
-L<Term::VT102> by Andrew Wood C<< <andrew dot wood at ivarch dot com> >>
-
-=head1 BUGS
-
-No known bugs.
-
-Please report any bugs in this module through RT: email
-C<bug-term-vt102-zerobased at rt.cpan.org>, or browse to
-L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Term-VT102-ZeroBased>.
-
-Consult the L<Term::VT102> documentation for reporting bugs in that module.
+L<Term::VT102> by Andrew Wood C<andrew.wood@ivarch.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2007 Shawn M Moore.
+Copyright 2007-2009 Shawn M Moore.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
 
 =cut
-
-1;
 
